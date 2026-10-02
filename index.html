@@ -1,566 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Key Stone Intelligence connects businesses with people for paid research conversations about products, services and real-world experiences. Join free.">
-  <meta name="theme-color" content="#0B1F3A">
-  <meta property="og:title" content="Key Stone Intelligence | Get Paid for Your Opinions">
-  <meta property="og:description" content="Join free for the opportunity to participate in paid research conversations about products, services and real-world experiences.">
-  <meta property="og:type" content="website">
-  <title>Key Stone Intelligence | Get Paid for Your Opinions</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%2214%22 fill=%22%230B1F3A%22/%3E%3Cpath d=%22M18 42V22h8l7 10 7-10h6v20h-6V31l-7 10-7-10v11z%22 fill=%22white%22/%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <style>
-    :root{
-      --ink:#0B1F3A;
-      --body-c:#334155;
-      --muted:#64748B;
-      --line:#E2E8F0;
-      --line-strong:#CBD5E1;
-      --surface:#F7F9FC;
-      --paper:#F8FAFC;
-      --white:#ffffff;
-      --green:#0F3B66;
-      --green-dark:#0B1F3A;
-      --green-soft:#E8F0F8;
-      --cta:#0B5FFF;
-      --cta-dark:#0849C8;
-      --cta-soft:#EAF2FF;
-      --max:1120px;
-      --radius:20px;
-      --shadow:0 20px 48px rgba(11,31,58,.10);
-      --serif:'Fraunces',Georgia,serif;
-      --sans:'Inter',ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
-      --sticky-h:74px;
-    }
-
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      color:var(--body-c);
-      background:var(--white);
-      font-family:var(--sans);
-      line-height:1.55;
-      -webkit-font-smoothing:antialiased;
-      text-rendering:optimizeLegibility;
-      font-size:16px;
-      overflow-x:hidden;
-    }
-    body:has(.nav-links.open){overflow:hidden}
-    a{text-decoration:none;color:inherit}
-    button{font:inherit}
-    .container{width:min(calc(100% - 32px),var(--max));margin:auto}
-    :focus-visible{outline:2px solid var(--cta);outline-offset:3px;border-radius:4px}
-
-    /* ---------- ANNOUNCEMENT BAR ---------- */
-    .announce{background:var(--green-dark);color:#e9f3ec;text-align:center;font-size:13px;font-weight:600;padding:10px 16px}
-
-    /* ---------- NAV ---------- */
-    .nav{height:72px;display:flex;align-items:center;justify-content:space-between}
-    .brand{display:flex;align-items:center;gap:10px;font-family:var(--sans);font-size:13px;font-weight:800;color:var(--ink);letter-spacing:.08em}
-    .mark{width:24px;height:24px;position:relative;display:inline-block;flex:none}
-    .mark:before,.mark:after{content:"";position:absolute;border-radius:8px 8px 8px 2px;transform:rotate(-7deg)}
-    .mark:before{width:13px;height:18px;left:1px;top:5px;background:#0B1F3A}
-    .mark:after{width:13px;height:13px;right:0;top:1px;background:#18365D}
-    .nav-links{display:flex;align-items:center;gap:28px;font-size:14px;color:var(--body-c);font-weight:500}
-    .nav-links a:not(.nav-cta):hover{color:var(--green)}
-    .nav-cta,.primary{
-      display:inline-flex;align-items:center;justify-content:center;gap:8px;
-      border-radius:10px;border:1px solid transparent;
-      background:var(--cta);color:#fff;font-weight:700;transition:.15s ease;
-      font-family:var(--sans);
-    }
-    .nav-cta{padding:10px 16px;font-size:13px}
-    .primary{padding:15px 24px;font-size:15px;box-shadow:0 10px 22px rgba(11,95,255,.20)}
-    .primary:hover,.nav-cta:hover{background:var(--cta-dark)}
-    .primary.big{padding:17px 28px;font-size:16px}
-    .cta-support{font-size:12.5px;color:var(--muted);margin-top:12px}
-    .menu{display:none;border:0;background:transparent;color:var(--ink);width:42px;height:42px;border-radius:10px;font-size:24px}
-
-    /* ---------- BASE ---------- */
-    section{padding:88px 0}
-    .kicker{display:block;color:var(--green-dark);font-weight:700;font-size:13.5px;margin:0 0 10px}
-    .section-title{font-family:var(--serif);font-size:clamp(26px,3.4vw,38px);line-height:1.14;letter-spacing:-.01em;margin:0 0 14px;font-weight:700;color:var(--ink)}
-    .section-sub{color:var(--body-c);font-size:16px;line-height:1.62;max-width:620px;margin:0}
-    .clarify-note{font-size:13px;color:var(--muted);max-width:520px;line-height:1.55;margin-top:8px}
-
-    /* ---------- HERO ---------- */
-    .hero{padding:44px 0 68px;background:linear-gradient(180deg,#F8FAFC 0%,#FFFFFF 100%);overflow:hidden}
-    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
-    .eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--green-dark);font-weight:700;font-size:13.5px;margin-bottom:14px;background:var(--green-soft);padding:6px 12px;border-radius:999px}
-    h1{font-family:var(--serif);font-size:clamp(34px,5vw,54px);line-height:1.1;letter-spacing:-.015em;margin:0 0 16px;font-weight:700;color:var(--ink);max-width:600px}
-    .highlight{color:var(--green);font-style:italic}
-    .hero-copy{font-size:16.5px;color:var(--body-c);line-height:1.62;max-width:520px;margin:0 0 24px}
-
-    .stats-row{display:flex;gap:14px;margin-bottom:28px;flex-wrap:wrap}
-    .stat{flex:1;min-width:140px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px}
-    .stat b{display:block;font-family:var(--serif);font-size:19px;color:var(--ink);font-weight:700;line-height:1.2}
-    .stat span{font-size:12px;color:var(--muted)}
-    .stat.pay{border-color:var(--cta-soft);background:var(--cta-soft)}
-    .stat.pay b{color:var(--cta-dark)}
-
-    .hero-art{min-height:380px;border:1px solid var(--line);border-radius:24px;background:var(--surface);position:relative;display:grid;place-items:center;overflow:hidden;box-shadow:var(--shadow)}
-    .hero-art:before{content:"";position:absolute;width:400px;height:400px;border-radius:50%;background:#E8F0F8;top:-160px;right:-110px}
-    .research-card{width:min(86%,360px);background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;position:relative;z-index:2;box-shadow:0 18px 44px rgba(11,31,58,.10)}
-    .research-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
-    .research-label{font-size:11px;color:var(--muted);font-weight:700}
-    .live{font-size:11px;color:var(--cta-dark);background:var(--cta-soft);border-radius:999px;padding:5px 10px;font-weight:700}
-    .research-title{font-family:var(--serif);font-size:19px;font-weight:700;letter-spacing:-.01em;margin-bottom:12px;color:var(--ink)}
-    .research-question{font-size:13.5px;color:var(--body-c);background:var(--surface);border-radius:12px;padding:13px;line-height:1.55;border:1px solid var(--line)}
-    .research-row{display:flex;gap:8px;margin-top:14px}
-    .metric{flex:1;border:1px solid var(--line);border-radius:12px;padding:12px;background:#fcfdfc}
-    .metric b{display:block;font-size:15px;color:var(--ink)}
-    .metric span{font-size:10.5px;color:var(--muted)}
-    .verified{margin-top:16px;display:flex;align-items:center;gap:8px;font-size:11.5px;color:var(--muted)}
-    .verified i{font-style:normal;width:20px;height:20px;border-radius:50%;background:var(--green-soft);color:var(--green-dark);display:grid;place-items:center}
-
-    /* ---------- WHY IT PAYS (trust) ---------- */
-    .why{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-    .why-copy p{font-size:15.5px;color:var(--body-c);max-width:640px;margin:8px 0}
-
-    /* ---------- CATEGORY GRID ---------- */
-    .cat-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:28px}
-    .cat-card{border:1px solid var(--line);border-radius:14px;padding:18px;background:#fff;display:flex;align-items:center;gap:12px}
-    .cat-icon{width:10px;height:10px;border-radius:50%;background:var(--green);flex:none}
-    .cat-card h3{font-size:14px;margin:0;color:var(--ink);font-weight:700}
-
-    /* ---------- HOW IT WORKS (vertical, always) ---------- */
-    .steps-head{text-align:center;max-width:600px;margin:0 auto}
-    .step-flow{max-width:580px;margin:48px auto 0;display:flex;flex-direction:column}
-    .step{display:grid;grid-template-columns:52px 1fr;gap:18px;text-align:left;position:relative;padding-bottom:6px}
-    .step-rail{display:flex;flex-direction:column;align-items:center}
-    .step-num{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:var(--green-soft);color:var(--green-dark);font-family:var(--serif);font-weight:700;font-size:17px;flex:none;border:1px solid var(--line-strong)}
-    .step:last-child .step-num{background:var(--cta-soft);color:var(--cta-dark)}
-    .step-connector{flex:1;width:2px;background:var(--line-strong);min-height:30px;margin-top:8px;position:relative}
-    .step-connector:after{content:"↓";position:absolute;left:50%;top:100%;transform:translate(-50%,-2px);color:var(--muted);font-size:14px;line-height:1}
-    .step:last-child .step-connector{display:none}
-    .step-body{padding-top:6px}
-    .step-body h3{font-family:var(--serif);font-size:18px;margin:0 0 5px;color:var(--ink);font-weight:700}
-    .step-body p{font-size:14.5px;color:var(--body-c);margin:0;line-height:1.55;max-width:420px}
-    .step-flow-cta{text-align:center;margin-top:36px}
-
-    /* ---------- NO SALES ---------- */
-    .conversation{display:grid;grid-template-columns:.95fr 1.05fr;gap:60px;align-items:center}
-    .no-sales-list{list-style:none;margin:20px 0 0;padding:0;display:flex;flex-direction:column;gap:10px}
-    .no-sales-list li{font-size:15px;color:var(--body-c);display:flex;gap:10px;align-items:flex-start;line-height:1.5}
-    .no-sales-list li:before{content:"✓";color:var(--green-dark);font-weight:700;flex:none}
-    .chat-box{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:var(--shadow)}
-    .bubble{max-width:86%;padding:12px 14px;border-radius:14px;font-size:13.5px;margin-bottom:12px;background:var(--surface);border:1px solid var(--line);color:var(--body-c);line-height:1.5}
-    .bubble strong{color:var(--ink)}
-    .bubble.right{margin-left:auto;background:var(--green-soft);border-color:#cfe8d8}
-    .caption{font-size:12.5px;color:var(--muted);margin:14px 4px 0}
-
-    /* ---------- CTA STRIP ---------- */
-    .middle-cta{width:min(calc(100% - 32px),var(--max));margin:0 auto 8px;padding:22px 24px;background:var(--ink);border-radius:16px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-    .middle-cta strong{display:block;font-family:var(--serif);font-size:18px;letter-spacing:-.01em;margin-top:4px;color:#fff;font-weight:700}
-    .mini-badge{display:inline-flex;padding:6px 11px;border-radius:999px;background:rgba(255,255,255,.1);color:#bfe6cd;font-size:12px;font-weight:600}
-
-    /* ---------- EXAMPLE PROJECTS ---------- */
-    .examples{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-    .examples-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:28px}
-    .example{border:1px solid var(--line);border-radius:14px;padding:18px;background:#fff}
-    .example-tag{display:inline-block;font-size:10.5px;font-weight:700;color:var(--muted);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px 9px;margin-bottom:10px}
-    .example .emoji{display:inline-flex;width:34px;height:34px;border-radius:9px;align-items:center;justify-content:center;background:var(--green-soft);color:var(--ink);font-size:11px;font-weight:800;letter-spacing:.04em}
-    .example h3{font-size:14px;margin:10px 0 4px;color:var(--ink);font-weight:700}
-    .example .meta{font-size:12.5px;color:var(--cta-dark);font-weight:700}
-
-    /* ---------- COMMUNITY / FOUNDERS ---------- */
-    .audience-founders{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
-    .pills{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
-    .pill{padding:8px 13px;border-radius:999px;border:1px solid var(--line-strong);font-size:13px;background:#fff;color:var(--body-c);font-weight:500}
-    .interest-note{border:1px solid var(--line);border-radius:14px;padding:14px;background:var(--surface);font-size:13.5px;color:var(--body-c);line-height:1.5}
-    .interest-note strong{color:var(--ink)}
-    .founders{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
-    .founder{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff}
-    .avatar{display:none}
-    .founder h3{margin:0 0 3px;font-size:14.5px;color:var(--ink);font-weight:700}
-    .founder .role{font-size:11.5px;color:var(--muted);font-weight:600}
-    .founder p{font-size:12.5px;color:var(--body-c);line-height:1.5;margin:9px 0 10px}
-    .linkedin{display:none}
-
-    /* ---------- TRUST / RISK REVERSAL ---------- */
-    .trust{padding:22px 0;background:var(--green-soft);border-top:1px solid #d5ebdd;border-bottom:1px solid #d5ebdd}
-    .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
-    .trust-item{display:flex;gap:9px;min-width:0}
-    .trust-icon{width:22px;height:22px;border-radius:50%;background:#fff;color:var(--green-dark);display:grid;place-items:center;font-size:12px;font-weight:800;flex:none;border:1px solid #cfe1d5}
-    .trust-item strong{display:block;font-size:12.5px;margin-bottom:2px;color:var(--ink);font-weight:700}
-    .trust-item span{font-size:11.5px;color:var(--body-c);line-height:1.4}
-
-    /* ---------- FAQ ---------- */
-    .faq{padding-bottom:70px}
-    .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 50px;margin-top:20px}
-    details{border-bottom:1px solid var(--line);padding:16px 0}
-    details.highlight-faq{background:var(--green-soft);border:1px solid #cfe6d8;border-radius:12px;padding:14px 16px;margin-bottom:8px}
-    summary{cursor:pointer;list-style:none;font-size:14.5px;font-weight:600;color:var(--ink);display:flex;justify-content:space-between;gap:15px}
-    summary::-webkit-details-marker{display:none}
-    summary:after{content:"+";font-size:17px;color:var(--muted);font-weight:400}
-    details[open] summary:after{content:"−"}
-    details p{font-size:13.5px;color:var(--body-c);margin:10px 20px 0 0;line-height:1.55}
-
-    /* ---------- FINAL CTA ---------- */
-    .final{padding:72px 0;background:var(--ink);text-align:center}
-    .final .section-title{font-size:clamp(28px,4vw,38px);color:#fff}
-    .final p{font-size:15.5px;color:#c7d6cd;margin:0 auto 24px;max-width:520px}
-    .final .cta-support{color:#9fb3a8}
-
-    /* ---------- FOOTER ---------- */
-    .footer{padding:28px 0 96px;background:var(--ink);color:#fff;max-width:none;width:100%;padding-left:max(16px,calc((100% - var(--max)) / 2));padding-right:max(16px,calc((100% - var(--max)) / 2))}
-    .footer-row{display:flex;justify-content:space-between;align-items:center;max-width:var(--max);margin:auto}
-    .footer .brand{color:#fff}
-    .footer .mark:before{background:#0B1F3A}
-    .footer .mark:after{background:#18365D}
-    .footer-links{display:flex;gap:18px;font-size:12.5px;color:#C7D2E0}
-    .footer-links a:hover{color:#fff}
-
-    /* ---------- MOBILE STICKY CTA ---------- */
-    .sticky-cta{
-      display:none;position:fixed;left:0;right:0;bottom:0;z-index:60;
-      background:#fff;border-top:1px solid var(--line);
-      padding:10px 16px calc(10px + env(safe-area-inset-bottom));
-      align-items:center;justify-content:space-between;gap:12px;
-      box-shadow:0 -8px 24px rgba(11,31,58,.10);
-    }
-    .sticky-cta .price-line{font-size:12.5px;color:var(--body-c)}
-    .sticky-cta .price-line b{display:block;font-size:14px;color:var(--ink)}
-    .sticky-cta .primary{padding:12px 18px;font-size:13.5px;flex:none}
-    .sticky-cta.hide{display:none!important}
-
-    /* ---------- MOBILE ---------- */
-    @media(max-width:900px){
-      .hero-grid,.conversation,.audience-founders{grid-template-columns:1fr;gap:34px}
-      .hero-art{min-height:320px}
-      .examples-grid,.trust-grid{grid-template-columns:repeat(2,1fr)}
-      .cat-grid{grid-template-columns:repeat(2,1fr)}
-      .middle-cta{flex-direction:column;align-items:flex-start;gap:14px}
-    }
-
-    @media(max-width:650px){
-      .container{width:min(calc(100% - 24px),var(--max))}
-      .announce{font-size:12px;padding:8px 10px}
-      .nav{height:60px}
-      .nav-links{display:none;position:fixed;z-index:70;top:66px;left:12px;right:12px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px;box-shadow:0 20px 45px rgba(11,31,58,.14);flex-direction:column;gap:2px}
-      .nav-links.open{display:flex}
-      .nav-links a{padding:13px 12px;width:100%}
-      .nav-links .nav-cta{text-align:center}
-      .menu{display:grid;place-items:center}
-      section{padding:56px 0}
-      .hero{padding:26px 0 48px}
-      h1{font-size:32px;max-width:100%}
-      .hero-copy{font-size:15px}
-      .stats-row{flex-direction:column}
-      .stat{min-width:0}
-      .primary{width:100%}
-      .hero-art{min-height:280px;margin-top:4px}
-      .research-card{width:90%;padding:18px}
-
-      .cat-grid{grid-template-columns:1fr 1fr;gap:10px}
-      .cat-card{padding:14px;flex-direction:column;align-items:flex-start;gap:8px}
-
-      /* Steps stay vertical on every screen size — never horizontal */
-      .step{grid-template-columns:44px 1fr;gap:12px}
-      .step-num{width:44px;height:44px;font-size:15px}
-      .step-body h3{font-size:16.5px}
-      .step-body p{font-size:14px}
-
-      .examples-grid{grid-template-columns:1fr 1fr;gap:10px}
-      .trust-grid{grid-template-columns:1fr 1fr;gap:14px}
-
-      .middle-cta{width:calc(100% - 24px);margin:0 auto 8px;padding:18px}
-      .middle-cta .primary{width:100%}
-
-      .founders{grid-template-columns:1fr}
-      .faq-grid{grid-template-columns:1fr}
-      .final{padding:52px 0}
-      .footer{padding:24px 0 100px}
-      .footer-row{flex-direction:column;align-items:flex-start;gap:14px}
-
-      .sticky-cta{display:flex}
-    }
-
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Get Paid for Your Opinion</title>
+<style>
+:root{--bg:#fffaf0;--ink:#111;--card:#fff;--muted:#555;--green:#b6f0c2;--pink:#ffc2dc;--yellow:#ffe27a;--sh:#111;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121212;--ink:#f5f1e8;--card:#1e1e1e;--muted:#aaa;--green:#1f4d2c;--pink:#5a2340;--yellow:#5a4a12;--sh:#f5f1e8}}
+:root[data-theme="dark"]{--bg:#121212;--ink:#f5f1e8;--card:#1e1e1e;--muted:#aaa;--green:#1f4d2c;--pink:#5a2340;--yellow:#5a4a12;--sh:#f5f1e8}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.5}
+.w{max-width:960px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bg);border-bottom:2px solid var(--ink)}
+header .w{display:flex;justify-content:space-between;align-items:center;height:60px}
+.logo{font-weight:900;font-size:20px}
+.btn{display:inline-block;font:inherit;font-weight:800;color:var(--ink);background:var(--green);border:2px solid var(--ink);border-radius:12px;padding:12px 20px;box-shadow:4px 4px 0 var(--sh);text-decoration:none;cursor:pointer}
+.btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--sh)}
+.btn.sm{padding:8px 14px;font-size:14px;box-shadow:3px 3px 0 var(--sh)}
+.hero{position:relative;padding:44px 0 36px;overflow:hidden}
+.chip{display:inline-block;background:var(--yellow);border:2px solid var(--ink);border-radius:99px;padding:4px 14px;font-weight:700;font-size:13px}
+h1{font-size:clamp(34px,9vw,64px);line-height:1.05;margin:16px 0 14px;font-weight:900;max-width:640px}
+h1 mark{background:var(--pink);color:var(--ink);padding:0 8px;border-radius:8px}
+.hero p{font-size:19px;max-width:520px;margin:0 0 22px;color:var(--muted)}
+.sh{position:absolute;border:2px solid var(--ink);z-index:-1}
+.s1{width:90px;height:90px;border-radius:50%;background:var(--pink);right:6%;top:40px}
+.s2{width:70px;height:70px;background:var(--green);right:18%;top:150px;transform:rotate(18deg)}
+.s3{width:60px;height:60px;background:var(--yellow);right:4%;top:210px;border-radius:50% 0 50% 0}
+.tick{background:var(--ink);color:var(--bg);overflow:hidden;white-space:nowrap;padding:12px 0;font-weight:800}
+.tick div{display:inline-block;animation:m 28s linear infinite}
+@keyframes m{to{transform:translateX(-50%)}}
+section{padding:48px 0}
+h2{font-size:clamp(26px,6vw,40px);margin:0 0 22px;font-weight:900}
+h2 mark{background:var(--green);color:var(--ink);padding:0 6px;border-radius:6px}
+.g{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.c{border:2px solid var(--ink);border-radius:16px;padding:18px;box-shadow:5px 5px 0 var(--sh);background:var(--card)}
+.c:nth-child(4n+1){background:var(--green)}.c:nth-child(4n+2){background:var(--pink)}.c:nth-child(4n+3){background:var(--yellow)}
+.c b{display:block;font-size:19px;margin-bottom:4px}
+.c .n{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--ink);color:var(--bg);font-weight:900;margin-bottom:10px}
+.c p{margin:0;font-size:15px}
+.box{border:2px solid var(--ink);border-radius:20px;background:var(--card);box-shadow:6px 6px 0 var(--sh);padding:22px}
+.calc{display:grid;gap:22px;grid-template-columns:1fr 1fr}
+@media(max-width:700px){.calc{grid-template-columns:1fr}}
+label{display:block;font-weight:700;font-size:14px;margin:12px 0 5px}
+label:first-child{margin-top:0}
+input,select,textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--ink);border-radius:10px;padding:11px 12px}
+input:focus,select:focus,textarea:focus{outline:3px solid var(--pink);outline-offset:1px}
+.res{background:var(--green);border:2px solid var(--ink);border-radius:16px;padding:20px;display:flex;flex-direction:column;justify-content:center}
+.res small{font-weight:700}
+.big{font-size:clamp(30px,7vw,42px);font-weight:900;line-height:1.1;margin:6px 0}
+.res ul{margin:10px 0 0;padding-left:18px;font-size:14px}
+.dis{font-size:12px;color:var(--muted);margin-top:12px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:560px){.row{grid-template-columns:1fr}}
+.check{display:flex;gap:10px;align-items:flex-start;margin-top:16px;font-size:14px}
+.check input{width:auto;margin-top:4px}
+.err{color:#d33;font-size:14px;min-height:1.2em;margin-top:8px;font-weight:700}
+#done{display:none;text-align:center}
+footer{border-top:2px solid var(--ink);padding:24px 0;font-size:13px;color:var(--muted)}
+</style>
 </head>
-
 <body>
-  <div class="announce">Paid research interviews · Free to join · No experience required</div>
+<header><div class="w"><span class="logo">💬 KeyStoneIntelligence</span><span style="display:flex;gap:14px;align-items:center"><a class="faq" href="#" style="color:var(--ink);font-weight:700">FAQs</a><a class="btn sm" href="#calc">Estimate earnings</a></span></div></header>
 
-  <header class="container nav">
-    <a href="#" class="brand" aria-label="Key Stone Intelligence home"><span class="mark" aria-hidden="true"></span><span>KEY STONE INTELLIGENCE</span></a>
-    <button class="menu" aria-label="Open menu" aria-expanded="false">☰</button>
-    <nav class="nav-links" id="navLinks">
-      <a href="#how">How it works</a>
-      <a href="#examples">Examples</a>
-      <a href="#about">About us</a>
-      <a class="nav-cta" href="https://tally.so/r/GxZ8vk" target="_blank" rel="noopener">Join Free →</a>
-    </nav>
-  </header>
+<div class="hero"><div class="sh s1"></div><div class="sh s2"></div><div class="sh s3"></div>
+<div class="w">
+  <span class="chip" id="badge">Shared by a creator you follow</span>
+  <h1>You already have opinions. Now get <mark>paid</mark> for them.</h1>
+  <p>Chat with us for 45–60 minutes about what you think. Earn <b style="color:var(--ink)">₹300–₹1,500 per call</b>, depending on the project. No selling. No catch.</p>
+  <a class="btn" href="#calc">See what I could earn 👇</a>
+</div></div>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <span class="eyebrow">Paid research interviews</span>
-          <h1>Your experience is valuable. <span class="highlight">Get paid to share it.</span></h1>
-          <p class="hero-copy">Startups and businesses pay for honest conversations about the products, apps and services you actually use.</p>
+<div class="tick"><div id="tk"></div></div>
 
-          <div class="stats-row">
-            <div class="stat pay"><b>₹500 to ₹1,500+</b><span>per completed interview</span></div>
-            <div class="stat"><b>30 to 60 min</b><span>typical conversation</span></div>
-            <div class="stat"><b>Paid immediately</b><span>after the interview</span></div>
-          </div>
-          <p class="clarify-note">Typical range. The amount depends on the project. An interview is not guaranteed for every participant.</p>
-
-          <a class="primary big" href="https://tally.so/r/GxZ8vk" target="_blank" rel="noopener">Join Free →</a>
-          <div class="cta-support">Takes about 2 minutes · No experience required · No selling</div>
-        </div>
-
-        <div class="hero-art" aria-hidden="true">
-          <div class="research-card">
-            <div class="research-top">
-              <span class="research-label">Research interview</span>
-              <span class="live">Illustrative example</span>
-            </div>
-            <div class="research-title">How do you choose a new app?</div>
-            <div class="research-question">
-              Tell us about the last time you tried a product for the first time.
-              What made you choose it?
-            </div>
-            <div class="research-row">
-              <div class="metric"><b>45 min</b><span>Conversation</span></div>
-              <div class="metric"><b>₹800</b><span>Illustrative payout</span></div>
-            </div>
-            <div class="verified"><i>✓</i>Research conversation. No sales pitch.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="why" id="why">
-      <div class="container">
-        <div class="why-copy">
-          <span class="kicker">Why would a company pay me?</span>
-          <h2 class="section-title">Companies can see what you do. Conversations tell them why.</h2>
-          <p>Businesses can see what people buy and use. What they really need to understand is why people choose something, what frustrates them, and what could make them switch. Your real experience helps answer those questions, which is why companies pay for your time.</p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <span class="kicker">What you can talk about</span>
-        <h2 class="section-title">Topics you already know</h2>
-        <p class="section-sub">Simple topics you already know from everyday life.</p>
-
-        <div class="cat-grid">
-          <div class="cat-card"><div class="cat-icon" aria-hidden="true"></div><h3>Food and shopping</h3></div>
-          <div class="cat-card"><div class="cat-icon" aria-hidden="true"></div><h3>Apps and technology</h3></div>
-          <div class="cat-card"><div class="cat-icon" aria-hidden="true"></div><h3>Banking and payments</h3></div>
-          <div class="cat-card"><div class="cat-icon" aria-hidden="true"></div><h3>Travel and transport</h3></div>
-          <div class="cat-card"><div class="cat-icon" aria-hidden="true"></div><h3>Fitness and health</h3></div>
-          <div class="cat-card"><div class="cat-icon" aria-hidden="true"></div><h3>Products and shopping choices</h3></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="how" class="why">
-      <div class="container">
-        <div class="steps-head">
-          <span class="kicker">How it works</span>
-          <h2 class="section-title">Four steps, start to finish.</h2>
-          <p class="section-sub">No experience needed. No CV. No selling.</p>
-        </div>
-
-        <div class="step-flow">
-          <article class="step">
-            <div class="step-rail"><div class="step-num">01</div><div class="step-connector"></div></div>
-            <div class="step-body"><h3>Join</h3><p>Fill out the short registration form. It takes about 1.5 to 2.5 minutes.</p></div>
-          </article>
-          <article class="step">
-            <div class="step-rail"><div class="step-num">02</div><div class="step-connector"></div></div>
-            <div class="step-body"><h3>Get matched</h3><p>We contact you when an active research project fits your profile.</p></div>
-          </article>
-          <article class="step">
-            <div class="step-rail"><div class="step-num">03</div><div class="step-connector"></div></div>
-            <div class="step-body"><h3>Have the conversation</h3><p>Speak with a researcher for around 30 to 60 minutes.</p></div>
-          </article>
-          <article class="step">
-            <div class="step-rail"><div class="step-num">04</div><div class="step-connector"></div></div>
-            <div class="step-body"><h3>Get paid</h3><p>Receive payment after completing the interview, according to the project payment terms.</p></div>
-          </article>
-        </div>
-
-        <p class="clarify-note" style="margin:20px auto 0;text-align:center">Research opportunities depend on the project and your profile. Joining does not guarantee an interview.</p>
-
-        <div class="step-flow-cta">
-          <a class="primary big" href="https://tally.so/r/GxZ8vk" target="_blank" rel="noopener">Join Free →</a>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container conversation">
-        <div>
-          <span class="kicker">No sales pitch, ever</span>
-          <h2 class="section-title">Just a conversation. Never a pitch.</h2>
-          <ul class="no-sales-list">
-            <li>You're not selling anything.</li>
-            <li>You're not being sold anything.</li>
-            <li>There are no right or wrong answers.</li>
-            <li>We want your real experience.</li>
-          </ul>
-        </div>
-        <div class="chat-box">
-          <div class="bubble"><strong>Researcher</strong><br>How do you usually decide which food delivery app to use?</div>
-          <div class="bubble right"><strong>You</strong><br>Usually I compare delivery time first, then price...</div>
-          <p class="caption">That's it. A normal conversation about your experience.</p>
-        </div>
-      </div>
-    </section>
-
-    <div class="middle-cta">
-      <div>
-        <strong>Ready to share your experience?</strong>
-      </div>
-      <a class="primary" href="https://tally.so/r/GxZ8vk" target="_blank" rel="noopener">Join Free →</a>
-    </div>
-
-    <section id="examples" class="examples">
-      <div class="container">
-        <span class="kicker">Examples of research conversations</span>
-        <h2 class="section-title">What research conversations can look like</h2>
-        <p class="section-sub">These are examples only. They are not previous clients or guaranteed upcoming projects.</p>
-
-        <div class="examples-grid">
-          <article class="example"><span class="example-tag">Illustrative</span><div class="example-dot" aria-hidden="true"></div><h3>Food delivery</h3><div class="meta">About 45 min · ₹800</div></article>
-          <article class="example"><span class="example-tag">Illustrative</span><div class="example-dot" aria-hidden="true"></div><h3>Banking and payments</h3><div class="meta">About 30 min · ₹500</div></article>
-          <article class="example"><span class="example-tag">Illustrative</span><div class="example-dot" aria-hidden="true"></div><h3>Buying a smartphone</h3><div class="meta">About 40 min · ₹1,000</div></article>
-          <article class="example"><span class="example-tag">Illustrative</span><div class="example-dot" aria-hidden="true"></div><h3>Fitness and health</h3><div class="meta">About 35 min · ₹700</div></article>
-          <article class="example"><span class="example-tag">Illustrative</span><div class="example-dot" aria-hidden="true"></div><h3>Apps and technology</h3><div class="meta">About 50 min · ₹900</div></article>
-          <article class="example"><span class="example-tag">Illustrative</span><div class="example-dot" aria-hidden="true"></div><h3>Shopping choices</h3><div class="meta">About 35 min · ₹600</div></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="container audience-founders">
-        <div>
-          <span class="kicker">Who can participate</span>
-          <h2 class="section-title">You don't need a special background.</h2>
-          <p class="section-sub">Students, professionals, founders, creators and everyday consumers can all participate.</p>
-          <div class="pills">
-            <span class="pill">Students</span><span class="pill">Professionals</span><span class="pill">Founders</span>
-            <span class="pill">Creators</span><span class="pill">Parents</span><span class="pill">Consumers</span>
-            <span class="pill">Tech users</span><span class="pill">Shoppers</span>
-          </div>
-          <div class="interest-note"><strong>You do not need research experience.</strong><br>We care about the real experience you have with the products, services and businesses you already use.</div>
-        </div>
-
-        <div>
-          <span class="kicker">The people behind it</span>
-          <h2 class="section-title" style="font-size:26px">Meet the founders</h2>
-          <p class="section-sub">Businesses want to understand their customers better. People with useful experience often do not have a simple way to take part in this research and get paid for their time. We are building that simple connection.</p>
-          <div class="founders">
-            <article class="founder">
-              
-              <h3>Vatsal Agrawal</h3>
-              <div class="role">SRCC · Final Year</div>
-              <p>Focused on making it simple for people to take part in paid research and be compensated fairly for their time.</p>
-              
-            </article>
-            <article class="founder">
-              
-              <h3>Vidish Agrawal</h3>
-              <div class="role">DU Graduate · Consulting</div>
-              <p>Focused on the research and business side of Key Stone Intelligence, alongside consulting.</p>
-              
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="trust">
-      <div class="container trust-grid">
-        <div class="trust-item"><div class="trust-icon" aria-hidden="true">✓</div><div><strong>Your information is private</strong><span>We use your details to find relevant research opportunities.</span></div></div>
-        <div class="trust-item"><div class="trust-icon" aria-hidden="true">✓</div><div><strong>Free to join</strong><span>No registration fee.</span></div></div>
-        <div class="trust-item"><div class="trust-icon" aria-hidden="true">✓</div><div><strong>Research, not selling</strong><span>You share your experience. We are not selling you anything.</span></div></div>
-        <div class="trust-item"><div class="trust-icon" aria-hidden="true">✓</div><div><strong>Payment after the interview</strong><span>Payment timing follows the terms of each research project.</span></div></div>
-      </div>
-    </div>
-
-    <section class="faq">
-      <div class="container">
-        <span class="kicker">Questions</span>
-        <h2 class="section-title">Frequently asked questions</h2>
-        <div class="faq-grid">
-          <details class="highlight-faq" open><summary>When do I get paid?</summary><p>Payment is made after the completed interview, according to the research project terms.</p></details>
-          <details><summary>How much do interviews pay?</summary><p>Typical payments are ₹500 to ₹1,500+, depending on the research project and interview length.</p></details>
-          <details><summary>How long are interviews?</summary><p>Most conversations are around 30 to 60 minutes.</p></details>
-          <details><summary>Am I guaranteed an interview?</summary><p>No. Participation depends on whether your profile matches an active research project. We reach out when there is a fit.</p></details>
-          <details><summary>How often might I receive opportunities?</summary><p>This varies based on how many projects match your profile. Some people may hear from us quickly, while others may wait longer between opportunities.</p></details>
-          
-          <details><summary>Do I need prior experience?</summary><p>No. You're being invited because your experience and perspective may be useful, not because of any formal qualification.</p></details>
-          <details><summary>Do I need to appear on camera?</summary><p>It depends on the specific project. If a particular interview requires video, you'll be told before you're asked to join.</p></details>
-          
-          <details><summary>What happens after I register?</summary><p>We may contact you when a project fits your profile and explain the next steps.</p></details>
-          <details><summary>Is this a sales call?</summary><p>No. These are research conversations intended to understand people's experiences and opinions.</p></details>
-          
-          <details><summary>Do I have to pay anything to join?</summary><p>No. Joining Key Stone Intelligence is free.</p></details>
-        </div>
-      </div>
-    </section>
-
-    <section class="final">
-      <div class="container">
-        <h2 class="section-title">Share your experience. Get paid for your time.</h2>
-        <p>Join for free. If your profile matches a research project, we will contact you. You can then decide whether you want to take part.</p>
-        <a class="primary big" href="https://tally.so/r/GxZ8vk" target="_blank" rel="noopener">Join Free →</a>
-        <div class="cta-support">Takes about 2 minutes · No selling · No experience required</div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="container footer">
-    <div class="footer-row">
-      <div class="brand"><span class="mark" aria-hidden="true"></span><span>KEY STONE INTELLIGENCE</span></div>
-      <div class="footer-links">
-        <a href="PRIVACY_POLICY_URL">Privacy Policy</a>
-        <a href="TERMS_URL">Terms</a>
-        <a href="CONTACT_URL">Contact</a>
-      </div>
-    </div>
-  </footer>
-
-  <div class="sticky-cta" id="stickyCta">
-    <div class="price-line"><b>₹500 to ₹1,500+</b>typical range</div>
-    <a class="primary" href="https://tally.so/r/GxZ8vk" target="_blank" rel="noopener">Join Free →</a>
+<section><div class="w">
+  <h2>Here's how <mark>simple</mark> it is</h2>
+  <div class="g">
+    <div class="c"><div class="n">1</div><b>Tell us about you</b><p>Fill a 2-minute form below.</p></div>
+    <div class="c"><div class="n">2</div><b>Quick intro call</b><p>A short chat so we know you're a good fit.</p></div>
+    <div class="c"><div class="n">3</div><b>Join our panel</b><p>We add you to our database of people we call for paid projects.</p></div>
+    <div class="c"><div class="n">4</div><b>Get paid per call</b><p>When a project matches your profile, you chat for 45–60 min and earn. Pay depends on the project.</p></div>
   </div>
+</div></section>
 
-  <script>
-    const menu = document.querySelector('.menu');
-    const nav = document.querySelector('#navLinks');
-    const stickyCta = document.querySelector('#stickyCta');
+<section style="padding-top:0"><div class="w">
+  <h2>Why people <mark>like</mark> this</h2>
+  <div class="g">
+    <div class="c"><b>Zero prep</b><p>No skills or experience needed. Just be honest.</p></div>
+    <div class="c"><b>From home</b><p>It's a phone or video call at a time that suits you.</p></div>
+    <div class="c"><b>Your schedule</b><p>Say yes only to projects you like.</p></div>
+    <div class="c"><b>Ready in 2 minutes</b><p>Apply now and we'll call you for an intro.</p></div>
+  </div>
+</div></section>
 
-    menu?.addEventListener('click', () => {
-      const open = nav.classList.toggle('open');
-      menu.setAttribute('aria-expanded', open);
-      menu.textContent = open ? '×' : '☰';
-      stickyCta.classList.toggle('hide', open);
-    });
+<section id="calc" style="padding-top:0"><div class="w">
+  <h2>Estimate your <mark>monthly</mark> earnings</h2>
+  <div class="box calc">
+    <div>
+      <label for="num">How many interviews can you do per month? <b id="numv">4</b></label>
+      <input id="num" type="range" min="1" max="20" value="4" style="padding:0;accent-color:var(--ink)">
+      <label for="days">Which days suit you?</label>
+      <select id="days"><option>Weekdays</option><option>Weekends</option><option selected>Both weekdays and weekends</option></select>
+      <label for="tod">What time of day?</label>
+      <select id="tod"><option>Morning (9am-12pm)</option><option>Afternoon (12-5pm)</option><option selected>Evening (5-9pm)</option><option>Flexible, any time</option></select>
+    </div>
+    <div class="res">
+      <small>Estimated earnings / month</small>
+      <div class="big" id="out">₹0</div>
+      <ul id="det"></ul>
+      <a class="btn" href="#apply" style="margin-top:16px;text-align:center">Apply to start earning →</a>
+    </div>
+  </div>
+  <p class="dis">This simply multiplies the interviews you're available for by our lowest and highest payout (₹300–₹1,500). It's not a guarantee. Interviews depend on projects that match your profile, so you may get fewer calls, or none, in a given month.</p>
+</div></section>
 
-    document.querySelectorAll('#navLinks a').forEach(a => {
-      a.addEventListener('click', () => {
-        nav.classList.remove('open');
-        menu.setAttribute('aria-expanded', 'false');
-        menu.textContent = '☰';
-        stickyCta.classList.remove('hide');
-      });
-    });
-  </script>
+<section id="apply" style="padding-top:0"><div class="w">
+  <h2>Ready? <mark>Apply</mark> in 2 minutes</h2>
+  <form id="f" class="box" novalidate>
+    <label for="name">Full name</label><input id="name" autocomplete="name">
+    <div class="row">
+      <div><label for="phone">WhatsApp / phone</label><input id="phone" type="tel" autocomplete="tel"></div>
+      <div><label for="email">Email</label><input id="email" type="email" autocomplete="email"></div>
+    </div>
+    <div class="row">
+      <div><label for="age">Age</label><input id="age" type="number" min="16" max="99"></div>
+      <div><label for="city">City</label><input id="city" autocomplete="address-level2"></div>
+    </div>
+    <div class="row">
+      <div><label for="fdays">Which days suit you?</label>
+      <select id="fdays"><option>Weekdays</option><option>Weekends</option><option selected>Both weekdays and weekends</option></select></div>
+      <div><label for="ftod">What time of day?</label>
+      <select id="ftod"><option>Morning (9am-12pm)</option><option>Afternoon (12-5pm)</option><option selected>Evening (5-9pm)</option><option>Flexible, any time</option></select></div>
+    </div>
+    <label for="topics">Topics you can talk about (shopping, apps, finance, health, gaming…)</label>
+    <textarea id="topics" rows="3"></textarea>
+    <label class="check"><input type="checkbox" id="ok"><span>I confirm my details are true and I agree to be contacted for an intro call. My data is used only for this program.</span></label>
+    <div class="err" id="err"></div>
+    <button class="btn" type="submit" style="width:100%;margin-top:8px">Submit my details</button>
+  </form>
+  <div id="done" class="box"><h2 style="margin-bottom:8px">Almost done! 🎉</h2><p>If WhatsApp didn't open, <a id="retry" href="#">tap here to send your details</a>. We'll call you soon.</p></div>
+</div></section>
+
+<footer><div class="w"><a class="faq" href="#" style="color:var(--ink);font-weight:700">Read the FAQs</a> · © KeyStoneIntelligence. Earnings are estimates and not guaranteed. Participation is subject to screening and project availability.</div></footer>
+
+<script>
+// ====== EDIT THESE ======
+var COMPANY_WHATSAPP = "919999999999"; // country code + number, no + or spaces
+var COMPANY_NAME = "KeyStoneIntelligence";
+var MIN_PAY = 300, MAX_PAY = 1500; // payout per interview (₹)
+
+// Paste your deployed Google Apps Script Web App URL here:
+var GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbw2asUa3zn8hMGv6vZyHLVJrNbfTyoa56WdzyXtA4Ltysr_pFVitatAMJSUnPJ6tMIgHQ/exec";
+
+var FAQ_URL = "https://claude.ai/artifact/P7jEZm5hwfrQ3NpievYDPY";
+// ========================
+var $ = function (id) { return document.getElementById(id); };
+var t = "You have opinions • You share them anyway • Now get paid for it • ";
+$("tk").textContent = t.repeat(8);
+
+var params = new URLSearchParams(location.search);
+var ref = (params.get("ref") || "").replace(/[^a-zA-Z0-9_.-]/g, "").slice(0, 40);
+try { if (ref) sessionStorage.setItem("ref", ref); else ref = sessionStorage.getItem("ref") || ""; } catch (e) {}
+if (ref) $("badge").textContent = "Invited by @" + ref; ref = ref || "direct";
+
+var est = "";
+function fmt(n) { return "₹" + (Math.round(n / 100) * 100).toLocaleString("en-IN"); }
+function calc() {
+  var n = +$("num").value;
+  $("numv").textContent = n;
+  est = fmt(n * MIN_PAY) + " – " + fmt(n * MAX_PAY) + " per month";
+  $("out").textContent = fmt(n * MIN_PAY) + " – " + fmt(n * MAX_PAY);
+  $("det").innerHTML = "<li>" + n + " interview" + (n > 1 ? "s" : "") + " × ₹300 to ₹1,500 each</li><li>Available: " + $("days").value.toLowerCase() + ", " + $("tod").value.toLowerCase() + "</li><li>Interviews depend on project availability</li>";
+}
+["days", "tod"].forEach(function (id) { $(id).addEventListener("change", function () { $("f" + id).value = $(id).value; }); });
+["num", "days", "tod"].forEach(function (id) { $(id).addEventListener("input", calc); });
+calc();
+var fl = FAQ_URL + (ref !== "direct" ? "?ref=" + ref : "");
+document.querySelectorAll("a.faq").forEach(function (a) { a.href = fl; a.target = "_top"; });
+
+var waUrl = "";
+$("f").addEventListener("submit", function (e) {
+  e.preventDefault();
+  var v = function (id) { return $(id).value.trim(); };
+  if (!v("name") || !v("phone") || !v("email") || !v("age") || !v("city") || !$("ok").checked) { $("err").textContent = "Please fill all fields and tick the confirmation."; return; }
+  if (!/^\+?[0-9 ()-]{8,15}$/.test(v("phone"))) { $("err").textContent = "Enter a valid phone number."; return; }
+  $("err").textContent = "";
+  var formData = new URLSearchParams();
+  formData.append("timestamp", new Date().toISOString());
+  formData.append("ref", ref);
+  formData.append("name", v("name"));
+  formData.append("phone", v("phone"));
+  formData.append("email", v("email"));
+  formData.append("age", v("age"));
+  formData.append("city", v("city"));
+  formData.append("interviews_per_month", $("num").value);
+  formData.append("days", $("fdays").value);
+  formData.append("time_of_day", $("ftod").value);
+  formData.append("topics", v("topics") || "-");
+  formData.append("shown_estimate", est);
+
+  // Save the application to Google Sheets.
+  // no-cors is intentional because the Apps Script Web App is on another domain.
+  if (GOOGLE_SHEET_URL && GOOGLE_SHEET_URL.indexOf("PASTE_YOUR") !== 0) {
+    fetch(GOOGLE_SHEET_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+      body: formData.toString(),
+      keepalive: true
+    }).catch(function () {});
+  }
+
+  var msg = "New " + COMPANY_NAME + " panel application\nReferred by: " + ref + "\nName: " + v("name") + "\nPhone: " + v("phone") + "\nEmail: " + v("email") + "\nAge: " + v("age") + "\nCity: " + v("city") + "\nAvailability: " + $("num").value + " interviews/month, " + $("fdays").value + ", " + $("ftod").value + "\nTopics: " + (v("topics") || "-") + "\nShown estimate: " + est;
+  waUrl = "https://wa.me/" + COMPANY_WHATSAPP + "?text=" + encodeURIComponent(msg);
+  $("f").style.display = "none"; $("done").style.display = "block";
+  window.open(waUrl, "_blank");
+});
+$("retry").addEventListener("click", function (e) { e.preventDefault(); if (waUrl) window.open(waUrl, "_blank"); });
+</script>
 </body>
 </html>
