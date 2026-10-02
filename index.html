@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Get Paid for Your Opinion</title>
+<title>KeyStoneIntelligence</title>
 <style>
 :root{--bg:#fffaf0;--ink:#111;--card:#fff;--muted:#555;--green:#b6f0c2;--pink:#ffc2dc;--yellow:#ffe27a;--sh:#111;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -15,13 +15,14 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple
 .w{max-width:960px;margin:0 auto;padding:0 20px}
 header{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bg);border-bottom:2px solid var(--ink)}
 header .w{display:flex;justify-content:space-between;align-items:center;height:60px}
-.logo{font-weight:900;font-size:20px}
+.logo{font-weight:900;font-size:20px;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.logo-mark{display:grid;place-items:center;width:30px;height:30px;border:2px solid var(--ink);border-radius:9px;background:var(--green);font-size:17px;font-weight:900;line-height:1;box-shadow:2px 2px 0 var(--sh)}
 .btn{display:inline-block;font:inherit;font-weight:800;color:var(--ink);background:var(--green);border:2px solid var(--ink);border-radius:12px;padding:12px 20px;box-shadow:4px 4px 0 var(--sh);text-decoration:none;cursor:pointer}
 .btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--sh)}
-.btn.sm{padding:8px 14px;font-size:14px;box-shadow:3px 3px 0 var(--sh)}
+.btn.sm{padding:8px 14px;font-size:12px;box-shadow:3px 3px 0 var(--sh)}
 .hero{position:relative;padding:44px 0 36px;overflow:hidden}
 .chip{display:inline-block;background:var(--yellow);border:2px solid var(--ink);border-radius:99px;padding:4px 14px;font-weight:700;font-size:13px}
-h1{font-size:clamp(34px,9vw,64px);line-height:1.05;margin:16px 0 14px;font-weight:900;max-width:640px}
+h1{font-size:clamp(36px,8vw,60px);line-height:1.08;letter-spacing:-.025em;margin:16px 0 16px;font-weight:900;max-width:680px}
 h1 mark{background:var(--pink);color:var(--ink);padding:0 8px;border-radius:8px}
 .hero p{font-size:19px;max-width:520px;margin:0 0 22px;color:var(--muted)}
 .sh{position:absolute;border:2px solid var(--ink);z-index:-1}
@@ -59,15 +60,39 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--pink);outline-of
 .err{color:#d33;font-size:14px;min-height:1.2em;margin-top:8px;font-weight:700}
 #done{display:none;text-align:center}
 footer{border-top:2px solid var(--ink);padding:24px 0;font-size:13px;color:var(--muted)}
+
+@media(max-width:700px){
+  .w{padding:0 16px}
+  header .w{height:56px}
+  .logo{font-size:17px;gap:7px}
+  .logo-mark{width:27px;height:27px;font-size:15px;border-radius:8px}
+  header .faq{display:none}
+  header .btn.sm{padding:7px 10px;font-size:12px;box-shadow:2px 2px 0 var(--sh)}
+  .hero{padding:34px 0 30px}
+  h1{font-size:clamp(34px,11vw,48px);line-height:1.04;letter-spacing:-.02em;margin:14px 0 16px}
+  .hero p{font-size:17px;line-height:1.45;margin-bottom:20px}
+  .hero .btn{width:100%;text-align:center}
+  section{padding:38px 0}
+  h2{font-size:30px;line-height:1.1}
+  .g{grid-template-columns:1fr}
+  .c{padding:16px}
+  .box{padding:17px;border-radius:16px}
+  .calc{gap:18px}
+  label{font-size:13px}
+  input,select,textarea{font-size:16px;min-height:46px}
+  .row{grid-template-columns:1fr}
+  .res{padding:17px}
+  .btn{width:100%;text-align:center}
+}
 </style>
 </head>
 <body>
-<header><div class="w"><span class="logo">💬 KeyStoneIntelligence</span><span style="display:flex;gap:14px;align-items:center"><a class="faq" href="#" style="color:var(--ink);font-weight:700">FAQs</a><a class="btn sm" href="#calc">Estimate earnings</a></span></div></header>
+<header><div class="w"><span class="logo"><span class="logo-mark" aria-hidden="true">K</span>KeyStoneIntelligence</span><span style="display:flex;gap:14px;align-items:center"><a class="faq" href="#" style="color:var(--ink);font-weight:700">FAQs</a><a class="btn sm" href="#calc">Estimate earnings</a></span></div></header>
 
 <div class="hero"><div class="sh s1"></div><div class="sh s2"></div><div class="sh s3"></div>
 <div class="w">
   <span class="chip" id="badge">Shared by a creator you follow</span>
-  <h1>You already have opinions. Now get <mark>paid</mark> for them.</h1>
+  <h1>You already have opinions.<br>Now get <mark>paid</mark> for them.</h1>
   <p>Chat with us for 45–60 minutes about what you think. Earn <b style="color:var(--ink)">₹300–₹1,500 per call</b>, depending on the project. No selling. No catch.</p>
   <a class="btn" href="#calc">See what I could earn 👇</a>
 </div></div>
@@ -149,11 +174,8 @@ footer{border-top:2px solid var(--ink);padding:24px 0;font-size:13px;color:var(-
 var COMPANY_WHATSAPP = "919999999999"; // country code + number, no + or spaces
 var COMPANY_NAME = "KeyStoneIntelligence";
 var MIN_PAY = 300, MAX_PAY = 1500; // payout per interview (₹)
-
-// Paste your deployed Google Apps Script Web App URL here:
-var GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbw2asUa3zn8hMGv6vZyHLVJrNbfTyoa56WdzyXtA4Ltysr_pFVitatAMJSUnPJ6tMIgHQ/exec";
-
 var FAQ_URL = "https://claude.ai/artifact/P7jEZm5hwfrQ3NpievYDPY";
+var GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbw2asUa3zn8hMGv6vZyHLVJrNbfTyoa56WdzyXtA4Ltysr_pFVitatAMJSUnPJ6tMIgHQ/exec";
 // ========================
 var $ = function (id) { return document.getElementById(id); };
 var t = "You have opinions • You share them anyway • Now get paid for it • ";
@@ -183,41 +205,52 @@ var waUrl = "";
 $("f").addEventListener("submit", function (e) {
   e.preventDefault();
   var v = function (id) { return $(id).value.trim(); };
-  if (!v("name") || !v("phone") || !v("email") || !v("age") || !v("city") || !$("ok").checked) { $("err").textContent = "Please fill all fields and tick the confirmation."; return; }
-  if (!/^\+?[0-9 ()-]{8,15}$/.test(v("phone"))) { $("err").textContent = "Enter a valid phone number."; return; }
-  $("err").textContent = "";
-  var formData = new URLSearchParams();
-  formData.append("timestamp", new Date().toISOString());
-  formData.append("ref", ref);
-  formData.append("name", v("name"));
-  formData.append("phone", v("phone"));
-  formData.append("email", v("email"));
-  formData.append("age", v("age"));
-  formData.append("city", v("city"));
-  formData.append("interviews_per_month", $("num").value);
-  formData.append("days", $("fdays").value);
-  formData.append("time_of_day", $("ftod").value);
-  formData.append("topics", v("topics") || "-");
-  formData.append("shown_estimate", est);
-
-  // Save the application to Google Sheets.
-  // no-cors is intentional because the Apps Script Web App is on another domain.
-  if (GOOGLE_SHEET_URL && GOOGLE_SHEET_URL.indexOf("PASTE_YOUR") !== 0) {
-    fetch(GOOGLE_SHEET_URL, {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
-      body: formData.toString(),
-      keepalive: true
-    }).catch(function () {});
+  if (!v("name") || !v("phone") || !v("email") || !v("age") || !v("city") || !$("ok").checked) {
+    $("err").textContent = "Please fill all fields and tick the confirmation.";
+    return;
   }
+  if (!/^\+?[0-9 ()-]{8,15}$/.test(v("phone"))) {
+    $("err").textContent = "Enter a valid phone number.";
+    return;
+  }
+  $("err").textContent = "";
 
+  // Prepare data for Google Sheet
+  var formData = {
+    timestamp: new Date().toISOString(),
+    referredBy: ref,
+    name: v("name"),
+    phone: v("phone"),
+    email: v("email"),
+    age: v("age"),
+    city: v("city"),
+    interviewsPerMonth: $("num").value,
+    days: $("fdays").value,
+    timeOfDay: $("ftod").value,
+    topics: v("topics") || "-",
+    estimate: est
+  };
+
+  // Send to Google Sheets (no-cors so we don't block on response)
+  var body = new URLSearchParams(formData).toString();
+  fetch(GOOGLE_SHEET_URL, {
+    method: "POST",
+    mode: "no-cors",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: body
+  }).catch(function () { /* ignore network errors – WhatsApp still works */ });
+
+  // Also open WhatsApp as before
   var msg = "New " + COMPANY_NAME + " panel application\nReferred by: " + ref + "\nName: " + v("name") + "\nPhone: " + v("phone") + "\nEmail: " + v("email") + "\nAge: " + v("age") + "\nCity: " + v("city") + "\nAvailability: " + $("num").value + " interviews/month, " + $("fdays").value + ", " + $("ftod").value + "\nTopics: " + (v("topics") || "-") + "\nShown estimate: " + est;
   waUrl = "https://wa.me/" + COMPANY_WHATSAPP + "?text=" + encodeURIComponent(msg);
-  $("f").style.display = "none"; $("done").style.display = "block";
+  $("f").style.display = "none";
+  $("done").style.display = "block";
   window.open(waUrl, "_blank");
 });
-$("retry").addEventListener("click", function (e) { e.preventDefault(); if (waUrl) window.open(waUrl, "_blank"); });
+$("retry").addEventListener("click", function (e) {
+  e.preventDefault();
+  if (waUrl) window.open(waUrl, "_blank");
+});
 </script>
 </body>
 </html>
