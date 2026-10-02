@@ -164,14 +164,16 @@ footer{border-top:2px solid var(--ink);padding:24px 0;font-size:13px;color:var(-
     <div class="err" id="err"></div>
     <button class="btn" type="submit" style="width:100%;margin-top:8px">Submit my details</button>
   </form>
-  <div id="done" class="box"><h2 style="margin-bottom:8px">Almost done! 🎉</h2><p>If WhatsApp didn't open, <a id="retry" href="#">tap here to send your details</a>. We'll call you soon.</p></div>
+  <div id="done" class="box">
+    <h2 style="margin-bottom:8px">Thank you! 🎉</h2>
+    <p>We received your details. We'll contact you shortly.</p>
+  </div>
 </div></section>
 
 <footer><div class="w"><a class="faq" href="#" style="color:var(--ink);font-weight:700">Read the FAQs</a> · © KeyStoneIntelligence. Earnings are estimates and not guaranteed. Participation is subject to screening and project availability.</div></footer>
 
 <script>
 // ====== EDIT THESE ======
-var COMPANY_WHATSAPP = "919999999999"; // country code + number, no + or spaces
 var COMPANY_NAME = "KeyStoneIntelligence";
 var MIN_PAY = 300, MAX_PAY = 1500; // payout per interview (₹)
 var FAQ_URL = "https://claude.ai/artifact/P7jEZm5hwfrQ3NpievYDPY";
@@ -181,10 +183,36 @@ var $ = function (id) { return document.getElementById(id); };
 var t = "You have opinions • You share them anyway • Now get paid for it • ";
 $("tk").textContent = t.repeat(8);
 
+// ---- Referral detection ----
+// Supports:
+//   1. ?ref=creatorname
+//   2. Path-based: keystoneintelligence.com/a  →  referredBy = "a"
+//   3. Falls back to sessionStorage (so it survives page navigation)
 var params = new URLSearchParams(location.search);
 var ref = (params.get("ref") || "").replace(/[^a-zA-Z0-9_.-]/g, "").slice(0, 40);
-try { if (ref) sessionStorage.setItem("ref", ref); else ref = sessionStorage.getItem("ref") || ""; } catch (e) {}
-if (ref) $("badge").textContent = "Invited by @" + ref; ref = ref || "direct";
+
+// If no ?ref=, try the last path segment (e.g. /a or /creator/b)
+if (!ref) {
+  var pathParts = location.pathname.replace(/\/+$/, "").split("/").filter(Boolean);
+  if (pathParts.length > 0) {
+    var last = pathParts[pathParts.length - 1].toLowerCase();
+    // Ignore common filenames
+    if (last !== "index.html" && last !== "index") {
+      ref = last.replace(/[^a-zA-Z0-9_.-]/g, "").slice(0, 40);
+    }
+  }
+}
+
+try {
+  if (ref) sessionStorage.setItem("ref", ref);
+  else ref = sessionStorage.getItem("ref") || "";
+} catch (e) {}
+
+if (ref) {
+  $("badge").textContent = "Invited by @" + ref;
+} else {
+  ref = "direct";
+}
 
 var est = "";
 function fmt(n) { return "₹" + (Math.round(n / 100) * 100).toLocaleString("en-IN"); }
@@ -201,7 +229,6 @@ calc();
 var fl = FAQ_URL + (ref !== "direct" ? "?ref=" + ref : "");
 document.querySelectorAll("a.faq").forEach(function (a) { a.href = fl; a.target = "_top"; });
 
-var waUrl = "";
 $("f").addEventListener("submit", function (e) {
   e.preventDefault();
   var v = function (id) { return $(id).value.trim(); };
@@ -214,6 +241,11 @@ $("f").addEventListener("submit", function (e) {
     return;
   }
   $("err").textContent = "";
+
+  // Disable button while sending
+  var btn = $("f").querySelector("button[type=submit]");
+  btn.disabled = true;
+  btn.textContent = "Submitting…";
 
   // Prepare data for Google Sheet
   var formData = {
@@ -231,25 +263,18 @@ $("f").addEventListener("submit", function (e) {
     estimate: est
   };
 
-  // Send to Google Sheets (no-cors so we don't block on response)
+  // Send to Google Sheets
   var body = new URLSearchParams(formData).toString();
   fetch(GOOGLE_SHEET_URL, {
     method: "POST",
     mode: "no-cors",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: body
-  }).catch(function () { /* ignore network errors – WhatsApp still works */ });
-
-  // Also open WhatsApp as before
-  var msg = "New " + COMPANY_NAME + " panel application\nReferred by: " + ref + "\nName: " + v("name") + "\nPhone: " + v("phone") + "\nEmail: " + v("email") + "\nAge: " + v("age") + "\nCity: " + v("city") + "\nAvailability: " + $("num").value + " interviews/month, " + $("fdays").value + ", " + $("ftod").value + "\nTopics: " + (v("topics") || "-") + "\nShown estimate: " + est;
-  waUrl = "https://wa.me/" + COMPANY_WHATSAPP + "?text=" + encodeURIComponent(msg);
-  $("f").style.display = "none";
-  $("done").style.display = "block";
-  window.open(waUrl, "_blank");
-});
-$("retry").addEventListener("click", function (e) {
-  e.preventDefault();
-  if (waUrl) window.open(waUrl, "_blank");
+  }).finally(function () {
+    // Show thank-you message (no WhatsApp)
+    $("f").style.display = "none";
+    $("done").style.display = "block";
+  });
 });
 </script>
 </body>
