@@ -7,8 +7,7 @@
 <style>
 :root{--bg:#fffaf0;--ink:#111;--card:#fff;--muted:#555;--green:#b6f0c2;--pink:#ffc2dc;--yellow:#ffe27a;--sh:#111;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121212;--ink:#f5f1e8;--card:#1e1e1e;--muted:#aaa;--green:#1f4d2c;--pink:#5a2340;--yellow:#5a4a12;--sh:#f5f1e8}}
-:root[data-theme="dark"]{--bg:#121212;--ink:#f5f1e8;--card:#1e1e1e;--muted:#aaa;--green:#1f4d2c;--pink:#5a2340;--yellow:#5a4a12;--sh:#f5f1e8}
+/* Dark mode disabled – always use light theme */
 html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px);scroll-behavior:smooth}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.5}
@@ -177,7 +176,7 @@ footer{border-top:2px solid var(--ink);padding:24px 0;font-size:13px;color:var(-
 var COMPANY_NAME = "KeyStoneIntelligence";
 var MIN_PAY = 300, MAX_PAY = 1500; // payout per interview (₹)
 var FAQ_URL = "https://claude.ai/artifact/P7jEZm5hwfrQ3NpievYDPY";
-var GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycby4WnnyZcNmsM-N9Zp1o4YfsUOo2wi2RoY7Le66iie3Dq_Ek7Ksj2kfiFGkpJfGwL9zuw/exec";
+var GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbw2asUa3zn8hMGv6vZyHLVJrNbfTyoa56WdzyXtA4Ltysr_pFVitatAMJSUnPJ6tMIgHQ/exec";
 // ========================
 var $ = function (id) { return document.getElementById(id); };
 var t = "You have opinions • You share them anyway • Now get paid for it • ";
